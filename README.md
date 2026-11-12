@@ -122,10 +122,6 @@ npm install
 npm run build
 ```
 
-> [!TIP]
-> Untuk development dengan hot-reload, jalankan `npm run dev` di dalam folder `frontend/`.
-> Vite akan berjalan di `http://localhost:5173` dan mem-proxy `/api` ke backend di port 3000.
-
 ### 4. Jalankan Backend Server
 
 Kembali ke root project, lalu jalankan:
