@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WA Automation - WA Status</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Supabase JS untuk Realtime subscription -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- QRCode.js untuk mengubah string base64 menjadi gambar barcode -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+
+<body>
+  <div data-app-nav></div>
+  <main class="shell">
+    <header>
+      <div>
+        <h1>Hubungkan perangkat</h1>
+        <p class="subtitle">Scan QR untuk membaca ID grup WhatsApp.</p>
+      </div>
+    </header>
+    <section class="status-grid">
+      <article class="status-panel">
+        <div class="status-heading">
+          <h2>Status</h2><span id="statusBadge">Terputus</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <p id="statusMessage">WhatsApp belum terhubung.</p>
+          <button id="reconnectBtn" type="button" title="Reconnect WhatsApp" aria-label="Reconnect WhatsApp"
+            style="padding: 4px 8px; cursor: pointer;">&#x21BB;</button>
+        </div>
+        <div id="qrState" hidden>
+          <img id="qrImage" alt="QR WhatsApp">
+          <p>WhatsApp di ponsel: <b>Perangkat tertaut</b> &gt; <b>Tautkan perangkat</b>.
+            <button id="refreshQrBtn" type="button" title="Refresh QR"
+              style="padding: 4px 8px; margin-left: 10px; cursor: pointer;">&#x21BB;</button>
+          </p>
+        </div>
+        <p id="phone" class="connected" hidden></p>
+        <p class="hint">Koneksi dikelola oleh server lokal. Scan QR akan muncul otomatis saat server berjalan.</p>
+      </article>
+      <article class="status-panel">
+        <div class="status-heading">
+          <div>
+            <h2>Daftar grup</h2>
+            <p class="hint">ID grup dapat disalin untuk automation.</p>
+          </div><button id="refreshBtn" type="button" disabled>Refresh</button>
+        </div>
+        <p id="groupsState">Hubungkan WhatsApp untuk membaca grup.</p>
+        <div id="tableWrap" class="status-table-wrap" hidden>
+          <table class="status-table">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Group ID</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="groupsBody"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script type="module">
+    import { checkAuth } from './auth-check.js';
+    import './nav.js';
+    import './wa-status.js';
+
+    checkAuth();
+  </script>
+</body>
+
+</html>

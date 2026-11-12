@@ -1,0 +1,1822 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "title": "standard public schema",
+    "version": "14.15"
+  },
+  "host": "nonnagkupmekckrcdxvo.supabase.co:443",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/vnd.pgrst.object+json;nulls=stripped",
+    "application/vnd.pgrst.object+json",
+    "text/csv"
+  ],
+  "produces": [
+    "application/json",
+    "application/vnd.pgrst.object+json;nulls=stripped",
+    "application/vnd.pgrst.object+json",
+    "text/csv"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "application/openapi+json",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "OpenAPI description (this document)",
+        "tags": [
+          "Introspection"
+        ]
+      }
+    },
+    "/form_request": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.form_request.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.nama_automation"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.link"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.jam_blast"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.caption"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.last_run_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.created_by"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/form_request"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "form_request"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.form_request"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "form_request"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.form_request.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.nama_automation"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.link"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.jam_blast"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.caption"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.last_run_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.created_by"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "form_request"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.form_request.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.nama_automation"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.link"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.jam_blast"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.caption"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.last_run_date"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.form_request.created_by"
+          },
+          {
+            "$ref": "#/parameters/body.form_request"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "form_request"
+        ]
+      }
+    },
+    "/sheet_tables": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.sheet_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.cell_range"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.created_at"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/sheet_tables"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "sheet_tables"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.sheet_tables"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "sheet_tables"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.sheet_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.cell_range"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.created_at"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "sheet_tables"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.sheet_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.cell_range"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.sheet_tables.created_at"
+          },
+          {
+            "$ref": "#/parameters/body.sheet_tables"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "sheet_tables"
+        ]
+      }
+    },
+    "/request_sheets": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.request_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.sheet_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.created_at"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/request_sheets"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "request_sheets"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.request_sheets"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "request_sheets"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.request_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.sheet_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.created_at"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "request_sheets"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.request_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.sheet_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_sheets.created_at"
+          },
+          {
+            "$ref": "#/parameters/body.request_sheets"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "request_sheets"
+        ]
+      }
+    },
+    "/request_groups": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.request_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.wa_group_id"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/request_groups"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "request_groups"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.request_groups"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "request_groups"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.request_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.wa_group_id"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "request_groups"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.request_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.request_groups.wa_group_id"
+          },
+          {
+            "$ref": "#/parameters/body.request_groups"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "request_groups"
+        ]
+      }
+    },
+    "/profiles": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.profiles.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.role"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.username"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/profiles"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "profiles"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.profiles"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "profiles"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.profiles.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.role"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.username"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "profiles"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.profiles.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.email"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.role"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.profiles.username"
+          },
+          {
+            "$ref": "#/parameters/body.profiles"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "profiles"
+        ]
+      }
+    },
+    "/wa_accounts": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.user_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.session_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.updated_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.qr_code_base64"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/wa_accounts"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "wa_accounts"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.wa_accounts"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "wa_accounts"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.user_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.session_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.updated_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.qr_code_base64"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "wa_accounts"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.phone"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.status"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.created_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.user_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.session_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.updated_at"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_accounts.qr_code_base64"
+          },
+          {
+            "$ref": "#/parameters/body.wa_accounts"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "wa_accounts"
+        ]
+      }
+    },
+    "/wa_groups": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.group_jid"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.group_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.is_active"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.wa_account_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.last_refresh"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/range"
+          },
+          {
+            "$ref": "#/parameters/rangeUnit"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/limit"
+          },
+          {
+            "$ref": "#/parameters/preferCount"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/wa_groups"
+              },
+              "type": "array"
+            }
+          },
+          "206": {
+            "description": "Partial Content"
+          }
+        },
+        "tags": [
+          "wa_groups"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/body.wa_groups"
+          },
+          {
+            "$ref": "#/parameters/select"
+          },
+          {
+            "$ref": "#/parameters/preferPost"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "tags": [
+          "wa_groups"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.group_jid"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.group_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.is_active"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.wa_account_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.last_refresh"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "wa_groups"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.group_jid"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.group_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.is_active"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.wa_account_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.wa_groups.last_refresh"
+          },
+          {
+            "$ref": "#/parameters/body.wa_groups"
+          },
+          {
+            "$ref": "#/parameters/preferReturn"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": [
+          "wa_groups"
+        ]
+      }
+    },
+    "/rpc/submit_form_request": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "payload": {
+                  "format": "jsonb"
+                }
+              },
+              "required": [
+                "payload"
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "$ref": "#/parameters/preferParams"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "(rpc) submit_form_request"
+        ]
+      }
+    },
+    "/rpc/is_admin": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "(rpc) is_admin"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "$ref": "#/parameters/preferParams"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "(rpc) is_admin"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "form_request": {
+      "required": [
+        "id",
+        "nama_automation",
+        "link",
+        "jam_blast"
+      ],
+      "properties": {
+        "id": {
+          "default": "gen_random_uuid()",
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "nama_automation": {
+          "format": "text",
+          "type": "string"
+        },
+        "link": {
+          "format": "text",
+          "type": "string"
+        },
+        "jam_blast": {
+          "format": "time without time zone",
+          "type": "string"
+        },
+        "caption": {
+          "format": "text",
+          "type": "string"
+        },
+        "status": {
+          "default": "active",
+          "format": "text",
+          "type": "string"
+        },
+        "last_run_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "created_at": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "created_by": {
+          "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sheet_tables": {
+      "required": [
+        "id",
+        "sheet_id",
+        "cell_range"
+      ],
+      "properties": {
+        "id": {
+          "default": "gen_random_uuid()",
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "sheet_id": {
+          "description": "Note:\nThis is a Foreign Key to `request_sheets.id`.<fk table='request_sheets' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "cell_range": {
+          "format": "text",
+          "type": "string"
+        },
+        "created_at": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "request_sheets": {
+      "required": [
+        "id",
+        "request_id",
+        "sheet_name"
+      ],
+      "properties": {
+        "id": {
+          "default": "gen_random_uuid()",
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "request_id": {
+          "description": "Note:\nThis is a Foreign Key to `form_request.id`.<fk table='form_request' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "sheet_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "created_at": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "request_groups": {
+      "required": [
+        "id",
+        "request_id",
+        "wa_group_id"
+      ],
+      "properties": {
+        "id": {
+          "default": "gen_random_uuid()",
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "request_id": {
+          "description": "Note:\nThis is a Foreign Key to `form_request.id`.<fk table='form_request' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "wa_group_id": {
+          "description": "Note:\nThis is a Foreign Key to `wa_groups.id`.<fk table='wa_groups' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "profiles": {
+      "required": [
+        "id",
+        "role",
+        "created_at"
+      ],
+      "properties": {
+        "id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "email": {
+          "format": "text",
+          "type": "string"
+        },
+        "role": {
+          "default": "user",
+          "format": "text",
+          "type": "string"
+        },
+        "created_at": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "username": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "wa_accounts": {
+      "required": [
+        "id",
+        "status",
+        "created_at",
+        "user_id",
+        "session_name",
+        "updated_at"
+      ],
+      "properties": {
+        "id": {
+          "default": "gen_random_uuid()",
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "phone": {
+          "format": "text",
+          "type": "string"
+        },
+        "status": {
+          "default": "disconnected",
+          "format": "text",
+          "type": "string"
+        },
+        "created_at": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "session_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "updated_at": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "qr_code_base64": {
+          "format": "text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "wa_groups": {
+      "required": [
+        "group_jid",
+        "group_name",
+        "id"
+      ],
+      "properties": {
+        "group_jid": {
+          "format": "text",
+          "type": "string"
+        },
+        "group_name": {
+          "format": "text",
+          "type": "string"
+        },
+        "is_active": {
+          "default": true,
+          "format": "boolean",
+          "type": "boolean"
+        },
+        "id": {
+          "default": "gen_random_uuid()",
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "wa_account_id": {
+          "description": "Note:\nThis is a Foreign Key to `wa_accounts.id`.<fk table='wa_accounts' column='id'/>",
+          "format": "uuid",
+          "type": "string"
+        },
+        "last_refresh": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "parameters": {
+    "preferParams": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "in": "header",
+      "type": "string"
+    },
+    "preferReturn": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "return=representation",
+        "return=minimal",
+        "return=none"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "preferCount": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "count=none"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "preferPost": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "return=representation",
+        "return=minimal",
+        "return=none",
+        "resolution=ignore-duplicates",
+        "resolution=merge-duplicates"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "select": {
+      "name": "select",
+      "description": "Filtering Columns",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "on_conflict": {
+      "name": "on_conflict",
+      "description": "On Conflict",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "order": {
+      "name": "order",
+      "description": "Ordering",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "range": {
+      "name": "Range",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "header",
+      "type": "string"
+    },
+    "rangeUnit": {
+      "name": "Range-Unit",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "default": "items",
+      "in": "header",
+      "type": "string"
+    },
+    "offset": {
+      "name": "offset",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "limit": {
+      "name": "limit",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.form_request": {
+      "name": "form_request",
+      "description": "form_request",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/form_request"
+      }
+    },
+    "rowFilter.form_request.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.nama_automation": {
+      "name": "nama_automation",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.link": {
+      "name": "link",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.jam_blast": {
+      "name": "jam_blast",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.caption": {
+      "name": "caption",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.status": {
+      "name": "status",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.last_run_date": {
+      "name": "last_run_date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.created_at": {
+      "name": "created_at",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.form_request.created_by": {
+      "name": "created_by",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.sheet_tables": {
+      "name": "sheet_tables",
+      "description": "sheet_tables",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/sheet_tables"
+      }
+    },
+    "rowFilter.sheet_tables.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.sheet_tables.sheet_id": {
+      "name": "sheet_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.sheet_tables.cell_range": {
+      "name": "cell_range",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.sheet_tables.created_at": {
+      "name": "created_at",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.request_sheets": {
+      "name": "request_sheets",
+      "description": "request_sheets",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/request_sheets"
+      }
+    },
+    "rowFilter.request_sheets.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.request_sheets.request_id": {
+      "name": "request_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.request_sheets.sheet_name": {
+      "name": "sheet_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.request_sheets.created_at": {
+      "name": "created_at",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.request_groups": {
+      "name": "request_groups",
+      "description": "request_groups",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/request_groups"
+      }
+    },
+    "rowFilter.request_groups.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.request_groups.request_id": {
+      "name": "request_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.request_groups.wa_group_id": {
+      "name": "wa_group_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.profiles": {
+      "name": "profiles",
+      "description": "profiles",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/profiles"
+      }
+    },
+    "rowFilter.profiles.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.profiles.email": {
+      "name": "email",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.profiles.role": {
+      "name": "role",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.profiles.created_at": {
+      "name": "created_at",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.profiles.username": {
+      "name": "username",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.wa_accounts": {
+      "name": "wa_accounts",
+      "description": "wa_accounts",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/wa_accounts"
+      }
+    },
+    "rowFilter.wa_accounts.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.phone": {
+      "name": "phone",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.status": {
+      "name": "status",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.created_at": {
+      "name": "created_at",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.user_id": {
+      "name": "user_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.session_name": {
+      "name": "session_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.updated_at": {
+      "name": "updated_at",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_accounts.qr_code_base64": {
+      "name": "qr_code_base64",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.wa_groups": {
+      "name": "wa_groups",
+      "description": "wa_groups",
+      "required": false,
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/wa_groups"
+      }
+    },
+    "rowFilter.wa_groups.group_jid": {
+      "name": "group_jid",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_groups.group_name": {
+      "name": "group_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_groups.is_active": {
+      "name": "is_active",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_groups.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_groups.wa_account_id": {
+      "name": "wa_account_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.wa_groups.last_refresh": {
+      "name": "last_refresh",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    }
+  },
+  "externalDocs": {
+    "description": "PostgREST Documentation",
+    "url": "https://postgrest.org/en/v14/references/api.html"
+  }
+}

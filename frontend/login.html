@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WA Automation - Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-layout">
+    <section class="auth-card" aria-labelledby="loginTitle">
+      <h2 id="loginTitle">Masuk ke akun</h2>
+      <p class="auth-subtitle">Masukkan akun terdaftar dan password Anda.</p>
+      <form id="loginForm">
+        <label for="email">Akun</label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="Masukkan akun terdaftar" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Masukkan password" required>
+        <div id="loginError" class="auth-error" role="alert" aria-live="polite"></div>
+        <button type="submit" id="loginButton" class="btn-primary">Masuk</button>
+      </form>
+    </section>
+  </main>
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WA Blast Automation - Form Request</title>
+  <script type="module" crossorigin src="/assets/main-B8p7__g2.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/nav-DbDnNZkH.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-B9BoBxME.css">
+</head>
+<body>
+  <div data-app-nav></div>
+  <div class="container">
+    <h1>WA Blast Automation</h1>
+    <p class="subtitle">Isi form untuk daftarkan job blast baru</p>
+
+    <form id="blastForm">
+      <label for="nama_automation">Nama Automation</label>
+      <input type="text" id="nama_automation" name="nama_automation" placeholder="contoh: Blast Sales Java Harian" required>
+
+      <label for="link">Link SharePoint / OneDrive</label>
+      <input type="url" id="link" name="link" placeholder="https://o365indosat-my.sharepoint.com/..." required>
+      <div id="linkPreview" class="link-preview" hidden>
+        <div class="link-preview-header">
+          <div>
+            <strong>Link siap digunakan</strong>
+            <p>Buka file untuk melihat sheet dan menentukan range.</p>
+          </div>
+          <a id="openLinkBtn" class="btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Buka link</a>
+        </div>
+      </div>
+
+      <label for="jam_blast">Jam Blast (recurring harian)</label>
+      <input type="time" id="jam_blast" name="jam_blast" required>
+
+      <label>Tanggal Blast</label>
+      <p class="field-hint">Pilih satu atau beberapa tanggal dalam bulan.</p>
+      <label class="schedule-mode-option">
+        <input type="checkbox" id="dailyBlast" checked>
+        <span>Setiap hari</span>
+      </label>
+      <div id="blastDays" class="blast-days-grid" aria-label="Pilih tanggal blast"></div>
+
+      <label for="caption">Caption</label>
+      <textarea id="caption" name="caption" rows="3" placeholder="Caption yang dikirim bareng gambar ke WA"></textarea>
+
+      <div class="groups-section">
+        <div class="groups-header">
+          <div>
+            <label>Pilih Grup WhatsApp</label>
+            <p class="groups-hint">Daftar diambil dari cache WhatsApp.</p>
+          </div>
+          <div class="groups-actions">
+            <button type="button" id="connectWaBtn" class="btn-secondary">Mulai koneksi</button>
+            <button type="button" id="refreshGroupsBtn" class="btn-secondary">Refresh grup</button>
+          </div>
+        </div>
+        <div id="groupsList" class="groups-list">
+          <p class="groups-state">Memuat daftar grup...</p>
+        </div>
+      </div>
+
+      <div class="sheets-section">
+        <div class="sheets-header">
+          <label>Sheet &amp; Range</label>
+          <button type="button" id="addSheetBtn" class="btn-secondary">+ Tambah Sheet</button>
+        </div>
+        <div id="sheetsContainer"></div>
+      </div>
+
+      <div id="formError" class="error-msg"></div>
+
+      <button type="submit" id="submitBtn" class="btn-primary">Submit Job</button>
+    </form>
+
+    <div id="successMsg" class="success-msg" style="display:none;"></div>
+  </div>
+
+  <template id="sheetTemplate">
+    <div class="sheet-block">
+      <div class="sheet-block-header">
+        <input type="text" class="sheet-name-input" placeholder="Nama sheet, contoh: Sales" required>
+        <select class="sheet-name-select" hidden></select>
+        <button type="button" class="btn-remove remove-sheet">Hapus Sheet</button>
+      </div>
+      <div class="ranges-container"></div>
+      <button type="button" class="btn-secondary add-range">+ Tambah Range</button>
+    </div>
+  </template>
+
+  <template id="rangeTemplate">
+    <div class="range-row">
+      <input type="text" class="range-input" placeholder="contoh: C1:E9" required>
+      <button type="button" class="btn-remove remove-range">&times;</button>
+    </div>
+  </template>
+
+</body>
+</html>

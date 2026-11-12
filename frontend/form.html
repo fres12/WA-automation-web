@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WA Blast Automation - Form Request</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  /* Hover colors */
+  .group-option:hover,
+  .blast-day:hover span {
+    border-color: #f9a8d4 !important;
+    background-color: #fdf2f8 !important;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    background-color: #fdf2f8 !important;
+    color: #da008f !important;
+  }
+
+  /* Checkbox accent color */
+  .schedule-mode-option input, .group-option input {
+    accent-color: #da008f !important;
+  }
+
+  /* Selected date color */
+  .blast-day input:checked + span {
+    border-color: #da008f !important;
+    background-color: #da008f !important;
+    color: #fff !important;
+  }
+  .blast-day input:focus-visible + span {
+    outline-color: #f9a8d4 !important;
+  }
+
+  /* Secondary buttons (Tambah Sheet, Tambah Range) */
+  .btn-secondary {
+    color: #da008f !important;
+    background-color: #fce7f3 !important;
+  }
+  .btn-secondary:hover {
+    background-color: #fbcfe8 !important;
+  }
+
+  /* ── WA Status Banner ─────────────────────────────────── */
+  #waBanner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+  }
+  #waBanner.wa-connected {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #15803d;
+  }
+  #waBanner.wa-connecting {
+    background-color: #fffbeb;
+    border-color: #fde68a;
+    color: #92400e;
+  }
+  #waBanner.wa-disconnected {
+    background-color: #fff1f2;
+    border-color: #fecdd3;
+    color: #9f1239;
+  }
+  #waBanner.wa-loading {
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+    color: #64748b;
+  }
+  #waBannerDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .wa-connected #waBannerDot  { background-color: #22c55e; box-shadow: 0 0 0 3px #bbf7d0; }
+  .wa-connecting #waBannerDot { background-color: #f59e0b; box-shadow: 0 0 0 3px #fde68a; animation: waPulse 1.2s ease-in-out infinite; }
+  .wa-disconnected #waBannerDot { background-color: #f43f5e; box-shadow: 0 0 0 3px #fecdd3; }
+  .wa-loading #waBannerDot  { background-color: #94a3b8; box-shadow: 0 0 0 3px #e2e8f0; animation: waPulse 1.2s ease-in-out infinite; }
+  @keyframes waPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+  #waBannerText { flex: 1; line-height: 1.4; }
+  #waBannerText strong { display: block; font-weight: 600; }
+  #waBannerLink {
+    white-space: nowrap;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1.5px solid currentColor;
+    transition: background 0.18s ease;
+  }
+  #waBannerLink:hover { background-color: rgba(0,0,0,0.06); }
+
+  /* ── Custom Time Picker Dropdown ──────────────────────── */
+  .time-picker-wrap {
+    position: relative;
+  }
+  .time-picker-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.9375rem;
+    color: #111827;
+    cursor: pointer;
+    transition: border-color 0.18s;
+    user-select: none;
+  }
+  .time-picker-trigger:focus {
+    outline: none;
+    border-color: #da008f;
+  }
+  .time-picker-trigger .tp-caret {
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    color: #9ca3af;
+  }
+  .time-picker-trigger.open .tp-caret { transform: rotate(180deg); }
+  .time-picker-trigger.placeholder { color: #9ca3af; }
+  .time-picker-dropdown {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  .time-picker-dropdown.open { display: block; }
+  .tp-search-wrap {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .tp-search {
+    width: 100%;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.18s;
+  }
+  .tp-search:focus { border-color: #da008f; }
+  .tp-list {
+    max-height: 220px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  .tp-option {
+    padding: 9px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.12s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tp-option:hover { background: #fdf2f8; color: #da008f; }
+  .tp-option.selected { background: #fce7f3; color: #da008f; font-weight: 600; }
+  .tp-option.hidden { display: none; }
+  .tp-empty {
+    padding: 12px 14px;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+</style>
+</head>
+
+<body>
+  <div data-app-nav></div>
+  <div class="container !max-w-7xl w-full">
+    <h1>WA Blast Automation</h1>
+    <p class="subtitle">Isi form untuk daftarkan job blast baru</p>
+
+    <!-- WA Connection Status Banner -->
+    <div id="waBanner" class="wa-loading" role="status" aria-live="polite">
+      <span id="waBannerDot"></span>
+      <span id="waBannerText">
+        <strong id="waBannerTitle">Memeriksa koneksi WhatsApp…</strong>
+        <span id="waBannerDesc">Pastikan WA sudah terkoneksi sebelum mengisi form.</span>
+      </span>
+      <a id="waBannerLink" href="/wa-status" hidden>Hubungkan WA</a>
+    </div>
+
+    <form id="blastForm">
+      <label for="nama_automation">Nama Automation</label>
+      <input type="text" id="nama_automation" name="nama_automation" placeholder="contoh: Blast Sales Java Harian"
+        required>
+
+      <label for="link">Link SharePoint / OneDrive</label>
+      <input type="url" id="link" name="link" placeholder="https://o365indosat-my.sharepoint.com/..." required>
+      <div id="linkPreview" class="link-preview" hidden>
+        <div class="link-preview-header">
+          <div>
+            <strong>Link siap digunakan</strong>
+            <p>Buka file untuk melihat sheet dan menentukan range.</p>
+          </div>
+          <a id="openLinkBtn" class="btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Buka link</a>
+        </div>
+      </div>
+
+      <label for="nama_file">Nama File</label>
+      <p class="field-hint">Pastikan nama sesuai dengan nama file excel</p>
+      <input type="text" id="nama_file" name="nama_file" placeholder="contoh: Data Sales Java Juli 2025.xlsx">
+
+      <label>Jam Blast (recurring harian)</label>
+      <!-- Custom searchable time picker: 07:00–18:00, setiap 30 menit -->
+      <input type="hidden" id="jam_blast" name="jam_blast" required>
+      <div class="time-picker-wrap" id="jamBlastWrap">
+        <button type="button" id="jamBlastTrigger" class="time-picker-trigger placeholder" aria-haspopup="listbox" aria-expanded="false">
+          <span id="jamBlastLabel">Pilih jam blast…</span>
+          <svg class="tp-caret" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="time-picker-dropdown" id="jamBlastDropdown" role="listbox">
+          <div class="tp-search-wrap">
+            <input type="text" class="tp-search" id="jamBlastSearch" placeholder="Cari jam, contoh: 09:00" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="tp-list" id="jamBlastList"></div>
+        </div>
+      </div>
+
+      <label>Tanggal Blast</label>
+      <p class="field-hint">Pilih satu atau beberapa tanggal dalam bulan.</p>
+      <label class="schedule-mode-option">
+        <input type="checkbox" id="dailyBlast" checked>
+        <span>Setiap hari</span>
+      </label>
+      <div id="blastDays" class="blast-days-grid" aria-label="Pilih tanggal blast"></div>
+
+      <label for="caption">Caption</label>
+      <textarea id="caption" name="caption" rows="3" placeholder="Caption yang dikirim bareng gambar ke WA"></textarea>
+
+      <div class="groups-section">
+        <div class="groups-header">
+          <div>
+            <label>Pilih Grup WhatsApp</label>
+          </div>
+          <div class="groups-actions">
+            <button type="button" id="refreshGroupsBtn"
+              style="background:none; border:none; cursor:pointer; padding:4px;" title="Refresh grup">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                stroke="#9ca3af" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="groupsList" class="groups-list">
+          <p class="groups-state">Memuat daftar grup...</p>
+        </div>
+      </div>
+
+      <div class="sheets-section">
+        <div class="sheets-header">
+          <div>
+            <label>Sheet &amp; Range</label>
+            <p class="field-hint" style="margin-top: 2px; margin-bottom: 0;">Pastikan Nama Sheet dan Rangenya sesuai dengan file Excel</p>
+          </div>
+          <button type="button" id="addSheetBtn" class="btn-secondary">+ Tambah Sheet</button>
+        </div>
+        <div id="sheetsContainer"></div>
+      </div>
+
+      <div id="formError" class="error-msg"></div>
+
+      <button type="submit" id="submitBtn" class="btn-primary">Submit Job</button>
+    </form>
+
+    <div id="successMsg" class="success-msg" style="display:none;"></div>
+  </div>
+
+  <template id="sheetTemplate">
+    <div class="sheet-block">
+      <div class="sheet-block-header">
+        <input type="text" class="sheet-name-input" placeholder="Nama sheet, contoh: Sales" required>
+        <select class="sheet-name-select" hidden></select>
+        <button type="button" class="btn-remove remove-sheet">Hapus Sheet</button>
+      </div>
+      <div class="ranges-container"></div>
+      <button type="button" class="btn-secondary add-range">+ Tambah Range</button>
+    </div>
+  </template>
+
+  <template id="rangeTemplate">
+    <div class="range-row">
+      <input type="text" class="range-input" placeholder="contoh: C1:E9" required>
+      <button type="button" class="btn-remove remove-range">&times;</button>
+    </div>
+  </template>
+
+  <script src="/auth-check.js"></script>
+  <script src="/nav.js"></script>
+  <script src="/script.js"></script>
+
+  <script type="module">
+    // ── WA Status Banner (form.html) ─────────────────────────────────────────
+    // Fetch status WA dari /api/wa/accounts (sama sumber dengan wa-status.js)
+    // dan tampilkan banner informatif di atas form.
+    // ─────────────────────────────────────────────────────────────────────────
+    const banner   = document.getElementById('waBanner');
+    const dot      = document.getElementById('waBannerDot');
+    const title    = document.getElementById('waBannerTitle');
+    const desc     = document.getElementById('waBannerDesc');
+    const linkEl   = document.getElementById('waBannerLink');
+
+    const STATUS_INFO = {
+      connected:    { cls: 'wa-connected',    t: 'WhatsApp Terhubung ✓',          d: 'Server siap. Kamu bisa mengisi dan submit form.', showLink: false },
+      qr:           { cls: 'wa-connecting',   t: 'Menunggu Scan QR…',              d: 'Buka halaman WA Status dan scan QR dengan ponselmu.',  showLink: true,  linkText: 'Buka WA Status' },
+      connecting:   { cls: 'wa-connecting',   t: 'Sedang Menghubungkan…',          d: 'Server sedang memproses koneksi, harap tunggu.', showLink: false },
+      logged_out:   { cls: 'wa-disconnected', t: 'WhatsApp Logout',                d: 'Sesi berakhir. Hubungkan ulang sebelum mengisi form.', showLink: true,  linkText: 'Hubungkan Ulang' },
+      disconnected: { cls: 'wa-disconnected', t: 'WhatsApp Belum Terkoneksi',       d: 'Jalankan server lokal dan hubungkan WA sebelum mengisi form.', showLink: true, linkText: 'Hubungkan WA' },
+    };
+
+    function applyBanner(status) {
+      const info = STATUS_INFO[status] ?? STATUS_INFO.disconnected;
+      banner.className = info.cls;
+      title.textContent = info.t;
+      desc.textContent  = info.d;
+      if (info.showLink) {
+        linkEl.textContent = info.linkText;
+        linkEl.hidden = false;
+      } else {
+        linkEl.hidden = true;
+      }
+    }
+
+    async function checkWaStatus() {
+      try {
+        const res  = await fetch('/api/wa/accounts');
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          applyBanner('disconnected');
+          return;
+        }
+        const account = data.accounts?.[0];
+        applyBanner(account?.status ?? 'disconnected');
+      } catch {
+        applyBanner('disconnected');
+      }
+    }
+
+    // Cek pertama kali, lalu polling tiap 15 detik
+    checkWaStatus();
+    setInterval(checkWaStatus, 15_000);
+  </script>
+</body>
+
+</html>

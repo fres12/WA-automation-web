@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WA Automation - WA Status</title>
+  <script type="module" crossorigin src="/assets/wa_status-CB2cTP-2.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/nav-DbDnNZkH.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-B9BoBxME.css">
+</head>
+<body>
+<div data-app-nav></div>
+<main class="shell">
+  <header><div><p class="eyebrow">WA STATUS</p><h1>Hubungkan perangkat</h1><p class="subtitle">Scan QR untuk membaca ID grup WhatsApp.</p></div></header>
+  <section class="status-grid">
+    <article class="status-panel">
+      <div class="status-heading"><h2>Status</h2><span id="statusBadge">Terputus</span></div>
+      <p id="statusMessage">WhatsApp belum terhubung.</p>
+      <div id="qrState" hidden><img id="qrImage" alt="QR WhatsApp"><p>WhatsApp di ponsel: <b>Perangkat tertaut</b> &gt; <b>Tautkan perangkat</b>.</p></div>
+      <p id="phone" class="connected" hidden></p>
+      <button id="connectBtn" class="primary" type="button">Mulai koneksi</button>
+    </article>
+    <article class="status-panel"><div class="status-heading"><div><h2>Daftar grup</h2><p class="hint">ID grup dapat disalin untuk automation.</p></div><button id="refreshBtn" type="button" disabled>Refresh</button></div><p id="groupsState">Hubungkan WhatsApp untuk membaca grup.</p><div id="tableWrap" class="status-table-wrap" hidden><table class="status-table"><thead><tr><th>Nama</th><th>Group ID</th><th>Anggota</th><th></th></tr></thead><tbody id="groupsBody"></tbody></table></div></article>
+  </section>
+</main>
+</body>
+</html>
