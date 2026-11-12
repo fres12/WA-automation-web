@@ -10,7 +10,7 @@ Sistem ini terdiri dari **dua repository terpisah** yang bekerja bersama:
 
 ```
 ┌─────────────────────────────────────┐       ┌────────────────────────────────────────┐
-│   WA automation  (repo ini)         │       │   [WA automation server](https://github.com/fres12/WA-Automation-Server)  (repo terpisah)│
+│   WA automation  (repo ini)         │       │   WA automation server  (repo terpisah)│
 │                                     │       │                                        │
 │  ✅ Node.js + Express               │       │  ✅ Python + Playwright (opsional)      │
 │  ✅ Frontend: Vite + Tailwind CSS   │  ←──→ │  ✅ Eksekutor blast WA harian          │
@@ -26,6 +26,9 @@ Sistem ini terdiri dari **dua repository terpisah** yang bekerja bersama:
                      │   wa_groups, dsb.)  │
                      └─────────────────────┘
 ```
+
+Repo terpisah: [WA automation server](https://github.com/fres12/WA-Automation-Server)
+
 
 ### Alur Kerja Lengkap
 
