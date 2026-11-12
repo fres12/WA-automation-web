@@ -10,7 +10,7 @@ Sistem ini terdiri dari **dua repository terpisah** yang bekerja bersama:
 
 ```
 ┌─────────────────────────────────────┐       ┌────────────────────────────────────────┐
-│   WA automation  (repo ini)         │       │   WA automation server  (repo terpisah)│
+│   WA automation  (repo ini)         │       │   [WA automation server](https://github.com/fres12/WA-Automation-Server)  (repo terpisah)│
 │                                     │       │                                        │
 │  ✅ Node.js + Express               │       │  ✅ Python + Playwright (opsional)      │
 │  ✅ Frontend: Vite + Tailwind CSS   │  ←──→ │  ✅ Eksekutor blast WA harian          │
@@ -175,7 +175,7 @@ WA automation/
 
 ## 🔗 Keterkaitan dengan WA Automation Server
 
-> **Lihat repo**: `C:\Users\fresn\OneDrive\Documents\INSP-Project\WA automation server`
+> **Lihat repo**: https://github.com/fres12/WA-automation-web
 
 Repo ini (web dashboard) **hanya menerima input** dari user dan menyimpannya ke Supabase.
 **Eksekusi blast WA yang sesungguhnya** dilakukan oleh **WA Automation Server** di repo terpisah.
